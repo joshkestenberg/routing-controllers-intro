@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
 
+  before_action :kitten_url, only: [:kitten, :kittens]
+
   def welcome
     @header = "Welcome!"
   end
@@ -14,14 +16,10 @@ class PagesController < ApplicationController
 
   def kitten
     @header = "Cats!"
-
-    kitten_url
   end
 
   def kittens
     @header = "Tons of Cats!"
-
-    kitten_url
   end
 
   def kitten_url
