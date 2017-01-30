@@ -14,7 +14,7 @@ class PagesController < ApplicationController
     @header = "Contest!"
 
     flash[:notice] = "Sorry, the contest has ended"
-    redirect_to "/welcome"
+    redirect_to root_url
   end
 
   def kitten
@@ -29,7 +29,7 @@ class PagesController < ApplicationController
     @magic_word = params[:magic_word]
     if @magic_word != "poo"
       flash[:alert] = "you don't have permission to view secrets"
-      redirect_to "/welcome"
+      redirect_to root_url
     end
   end
 
