@@ -25,6 +25,14 @@ class PagesController < ApplicationController
     @header = "Tons of Cats!"
   end
 
+  def secrets
+    @magic_word = params[:magic_word]
+    if @magic_word != "poo"
+      flash[:alert] = "you don't have permission to view secrets"
+      redirect_to "/welcome"
+    end
+  end
+
   def kitten_url
     requested_size = params[:size]
     @kitten_url = "http://lorempixel.com/#{requested_size}/#{(requested_size.to_i / 2)}/cats"
